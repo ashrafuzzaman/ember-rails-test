@@ -23,6 +23,8 @@ Stories.storiesController = Ember.ArrayProxy.create({
 		        Stories.storiesController.pushObject(s);
 		    })
 		});
+		//frequently update data
+		setTimeout(Stories.storiesController.updateContent, 10000);
   }
 });
 
