@@ -33,15 +33,19 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 	{{#each Stories.storiesController}}
 	<tr>
 	  <td>{{title}}</td>
 	  <td>{{description}}</td>
 	  <td>{{status}}</td>
-	  <td><a href="/stories/{{id}}">Show</a></td>
-    <td><a href="/stories/{{id}}/edit">Edit</a></td>
-    <td><a href="/stories/{{id}}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a></td>
+	  {{#with this as story}}
+	  	<td><a href="#" title="view again" {{action "show" target="story"}}>Show</a></td>
+	  {{/with}}
+	  <td><a href="/stories/{{unbound id}}">Show</a></td>
+    <td><a href="/stories/{{unbound id}}/edit">Edit</a></td>
+    <td><a href="/stories/{{unbound id}}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a></td>
 	</tr>
 	{{/each}}
 </table>

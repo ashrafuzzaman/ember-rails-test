@@ -4,7 +4,12 @@ Stories.Story = Ember.Object.extend({
   id: null,
   title: null,
   description: null,
-  status: null
+  status: null,
+  show: function() {
+    console.log(arguments);
+    console.log(this);
+    alert(this.get("id"));
+  }
 });
 
 
@@ -25,7 +30,10 @@ Stories.storiesController = Ember.ArrayProxy.create({
 		});
 		//frequently update data
 		setTimeout(Stories.storiesController.updateContent, 10000);
-  }
+  },
+  show: function(view){
+    alert(view.context);
+	}
 });
 
 Stories.storiesController.updateContent();
