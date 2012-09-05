@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require libs/handlebars
 //= require libs/ember
 //= require stories

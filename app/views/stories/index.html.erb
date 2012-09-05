@@ -25,26 +25,31 @@
 <br />
 
 <script type="text/x-handlebars">
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+
+<div class="accordion">
 	{{#each Stories.storiesController}}
-	<tr>
-	  <td>{{title}}</td>
-	  <td>{{description}}</td>
-	  <td>{{status}}</td>
-	  <td><a href="/stories/{{id}}">Show</a></td>
-    <td><a href="/stories/{{id}}/edit">Edit</a></td>
-    <td><a href="/stories/{{id}}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a></td>
-	</tr>
+  {{#view Stories.StoryView contentBinding="this"}}
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <div class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{unbound id}}" href="#collapse{{unbound id}}">
+        <div style="display: inline-block;">
+          {{title}}
+        </div>
+      </div>
+    </div>
+    <div id="collapse{{unbound id}}" class="accordion-body collapse">
+      <div class="accordion-inner">
+          <a href="#" {{action "editStory" on="click"}}>Edit</a>
+          <a href="#" title="remove" {{action "removeStory" on="click"}}>X</a>
+          {{description}}
+      </div>
+    </div>
+  </div>
+  {{/view}}
 	{{/each}}
-</table>
+</div>
+
 </script>
+
 
 <%= link_to 'New Story', new_story_path %>

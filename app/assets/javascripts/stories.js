@@ -4,7 +4,7 @@ Stories.Story = Ember.Object.extend({
   id: null,
   title: null,
   description: null,
-  status: null
+  status: null,
 });
 
 
@@ -29,3 +29,18 @@ Stories.storiesController = Ember.ArrayProxy.create({
 });
 
 Stories.storiesController.updateContent();
+
+Stories.StoryView = Ember.View.extend({
+  tagName: 'div',
+  content: null,
+
+  editStory: function() {
+    story = this.getPath('content');
+    alert(story.title);
+  },
+
+  removeStory: function(){
+    story = this.getPath('content');
+    Stories.storiesController.removeObject(story);
+  }
+});
