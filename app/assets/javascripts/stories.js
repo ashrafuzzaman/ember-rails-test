@@ -35,12 +35,12 @@ Stories.StoryView = Ember.View.extend({
   content: null,
 
   editStory: function() {
-    story = this.getPath('content');
+    story = this.getPath('story');
     alert(story.title);
   },
 
   removeStory: function(){
-    story = this.getPath('content');
+    story = this.getPath('story');
     Stories.storiesController.removeObject(story);
   }
 });

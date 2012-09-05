@@ -28,7 +28,7 @@
 
 <div class="accordion">
 	{{#each Stories.storiesController}}
-  {{#view Stories.StoryView contentBinding="this"}}
+  {{#view Stories.StoryView storyBinding="this"}}
   <div class="accordion-group">
     <div class="accordion-heading">
       <div class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{unbound id}}" href="#collapse{{unbound id}}">
