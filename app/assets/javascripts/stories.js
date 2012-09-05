@@ -4,7 +4,7 @@ Stories.Story = Ember.Object.extend({
   id: null,
   title: null,
   description: null,
-  status: null,
+  status: null
 });
 
 
